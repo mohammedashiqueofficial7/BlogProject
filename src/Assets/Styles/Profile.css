@@ -1,0 +1,68 @@
+.profile-main-border{
+    border: solid,black,2px;
+    background-color:rgb(250, 249, 249);
+    margin-top: 100px;
+    width: 500px;
+    height: 550px;
+    border-radius: 1rem;
+}
+.main-card{
+    display: flex;
+    justify-content: center;
+    align-items:center; 
+   
+}
+
+.box1{
+    margin-left: 20px;
+    margin-top: 20px;
+    font-weight: bolder;
+}
+.box2{
+    margin-left: 20px;
+    margin-top: 25px;
+    font-weight: bolder;
+}
+.box3{
+    margin-left: 20px;
+    margin-top: 25px;
+   font-weight: bolder;
+}
+
+.profile-button{
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items:center; 
+}
+.button{
+    width: 100px;
+    height: 30px;
+    border-radius: 2rem;
+    background-color: black;
+    color: aliceblue;
+}
+.button1{
+    width: 100px;
+    height: 30px;
+    border-radius: 2rem;
+    background-color: rgb(15, 37, 207);
+    color: aliceblue;
+}
+
+p{
+    margin-left: 25px;
+    font-weight: bolder;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+

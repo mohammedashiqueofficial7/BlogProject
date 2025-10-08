@@ -1,0 +1,73 @@
+.edit-head{
+    margin-top: 20px;
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+}
+.main-border{
+    border: solid,black,2px;
+    background-color:rgb(250, 249, 249);
+    margin-top: 80px;
+    width: 550px;
+   margin: auto;
+    border-radius: 1rem;
+}
+.main{
+    display: flex;
+    justify-content: center;
+    align-items:center; 
+}
+h5{
+    margin-left: 20px;
+    margin-top: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.box1{
+     margin-left: 20px;
+     width: 400px;
+}
+.box2{
+     margin-left: 20px;
+      width: 400px;
+}
+.box3{
+     margin-left: 20px;
+      width: 400px;
+}
+.calender{
+     margin-left: 20px; 
+     width: 250px;
+}
+.main-save-button{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items:center; 
+}
+.save-button{
+    width: 150px;
+    height: 40px;
+    border-radius: 2rem;
+    color:aliceblue;
+}
+.main-button{ 
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items:center; 
+}
+
+.delete-button{
+    width: 350px;
+    height: 40px;
+    background-color: rgb(250, 248, 248);
+    text-align: center;
+    font-size:larger;
+    border-radius: 7px;
+    color: rgb(245, 7, 7);
+}
+.change-pass{
+    margin-left: 10px;
+}
+
+

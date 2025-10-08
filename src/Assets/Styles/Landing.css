@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(120deg, #f4f6fc 0%, #e9eafc 100%);
+  min-height: 100vh;
+}
+.image-landing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.text-landing {
+  font-size: 40px;
+  color: #053437aa;
+  align-items: center;
+  justify-content: center;
+  font-weight: bolder;
+  line-height: 1.6;
+}
+.text-landing1 {
+  margin-bottom: 70%;
+ 
+  color: #0a0a0a;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.6;
+}
+.text-landing-nxtpage{
+  margin-bottom: 70%;
+  color: #fbfbf9;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.6;
+}
+
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.landing-button {
+  text-decoration: none;
+  background: linear-gradient(90deg, #5c27fe 0%, #7f8da6 100%);
+  color: white;
+  width: 350px;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(92, 39, 254, 0.3);
+  transition: all 0.3s ease;
+  width: 450px;
+}
+
+/* .info {
+  text-align: center;
+  font-size: medium;
+  font-weight: bold;
+  color: rgb(192, 175, 28);
+  padding-top: 20px;
+  box-shadow: #7f8da6;
+} */
+
+.carousal-2 {
+  background: #5c27fe;
+  font-size: medium;
+  width: 40%;
+  border-radius: 20px;
+  margin-bottom: 20%;
+}
+#carousal-2-page {
+  color: white;
+  font-size: medium;
+  background: #074261;
+  width: 40%;
+  border-radius: 10rem;
+  padding-top: 20px;
+ 
+}
+.carousal-3-page {
+  color: white;
+  font-size: medium;
+  background: #151d21;
+  width: 20%;
+  border-radius: 10rem;
+}
+.button-info{
+  background-color: rgb(226, 237, 11);
+  color: #121211;
+  border-radius: 10px;
+  width:110px;
+  border-color: #ffffff;
+}

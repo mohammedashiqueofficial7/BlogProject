@@ -1,0 +1,103 @@
+.upgrade-header{
+    text-align: center;
+    margin-top: 30px;
+    color:rgb(240, 181, 33);
+    text-shadow: 2px 2px #c2c2c2;
+}
+.upgrade-header1{
+    text-align: center;
+    margin-top: 30px;
+    color: rgb(213, 187, 43);
+    text-shadow: 2px 2px #c2c2c2;
+}
+.upgrade-plan{
+    text-align: center;
+    margin-top: 20px;
+    color: #151515;
+    font-weight: bolder;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+}
+.plan1{
+    
+    margin-top: 40px;
+    border: 2px solid black;
+    border-radius: 15px;
+    box-shadow: 5px 10px #888888;
+    padding: 20px;
+    width: 250px;
+    background-color: #f0f0f0;
+    text-align: center;
+     text-shadow: 2px 2px #c2c2c2;
+}
+.plan2{
+    
+    margin-top: 40px;
+    border: 2px solid black;
+    border-radius: 15px;
+    box-shadow: 5px 10px #888888;
+    padding: 20px;
+    width: 250px;
+    background-color: #f0f0f0;
+    text-align: center;
+     text-shadow: 2px 2px #c2c2c2;
+}
+.plan3{
+    
+    margin-top: 40px;
+    border: 2px solid black;
+    border-radius: 15px;
+    box-shadow: 5px 10px #888888;
+    padding: 20px;
+    width: 350px;
+    background-color: #f0f0f0;
+    text-align: center;
+     text-shadow: 2px 2px #c2c2c2;
+}
+.plan-container{
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+.month{
+    font-size: xx-large;
+    color: #151515;
+    font-weight: bolder;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+}
+.week{
+    font-size: xx-large;
+    color: #151515;
+    font-weight: bolder;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+}
+.year{
+    font-size: xx-large;
+    color: #afb134;
+    font-weight: bolder;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+}
+.list{
+    font-size: larger;
+    font-weight: bold;
+}
+.cost{
+    font-size: medium;
+    color: rgb(249, 10, 10);
+}
+.week-btn{
+    margin-top: 20px ;
+
+}
+.month-btn{
+    margin-top: 20px ;
+    
+}
+.cost1{
+    color: green;
+    font-weight: bolder;
+    font-size:larger;
+}

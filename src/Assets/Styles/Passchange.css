@@ -1,0 +1,44 @@
+.change-password-head{
+    display: flex;
+    justify-content: center;
+    align-items:center; 
+}
+.pass-head{
+    border: solid,black,2px;
+    background-color:rgb(250, 249, 249);
+    margin-top: 80px;
+    width: 450px;
+    height: 500px;
+    border-radius: 1rem;
+}
+.heading{
+    text-align: center;
+    margin-top: 15px;
+}
+.new-pass{
+    margin-top: 40px;
+    margin-left: 15px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.re-enter-pass{
+    margin-top: 20px;
+    margin-left: 15px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.box2{
+    width: 360px;
+}
+.box3{
+    width: 360px;
+}
+.information{
+    margin-top: 20px;
+    margin-left: 10px;
+    color:green;
+}
+.change-button{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}

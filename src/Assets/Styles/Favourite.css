@@ -1,0 +1,20 @@
+.fav-head{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.fav-back-button{
+    display: block;
+    margin: auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;    
+}
+.fav-main{
+  background-color:rgb(236, 227, 214)
+}

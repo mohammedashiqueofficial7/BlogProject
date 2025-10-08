@@ -1,0 +1,39 @@
+.reports-main{
+    background-color: bisque;
+}
+.report-barchart{
+   display: flex;
+    margin-top: 50px;
+    justify-content: center;
+    align-items: center;
+}
+.reports-heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:x-large;
+    font-weight: bold;
+}
+.report-pie{
+    margin-top: 50px;
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+    align-items: center;
+}
+.barchart-head{
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+    font-style:bold;
+} 
+.piechart{
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+    font-style:bold;
+} 

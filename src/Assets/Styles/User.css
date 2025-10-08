@@ -1,0 +1,116 @@
+
+ * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.main-div{ 
+  margin-top: 50px;
+}
+.user-main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 150px);
+}
+body, html {
+  height: 100%;
+  /* background-color: #eae3e3; */
+}
+
+.container1 {
+  display: flex;
+  /* height: 100%; */
+  width: 100%;
+  max-width: 1000px;
+  
+  margin: 0 auto;
+ 
+}
+
+ .login-section{
+  flex: 1;
+  background-color: #fff;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+} 
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #5c27fe;
+  margin-bottom: 30px;
+}
+
+h1 {
+  font-size: 32px;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #7d7d7d;
+  margin-bottom: 30px;
+}
+
+
+
+form label {
+  font-size: 14px;
+  margin: 10px 0 5px;
+  display: block;
+}
+
+form input {
+  padding: 12px;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  font-size: 15px;
+}
+
+.sign-in {
+  background-color: #5c27fe;
+  color: white;
+  padding: 14px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.register {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+.register a {
+  color: #5c27fe;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.image-section {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.image-section img{
+  width: 100%;
+  height: 100%;
+}

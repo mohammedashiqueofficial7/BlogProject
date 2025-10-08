@@ -1,0 +1,39 @@
+.email-main{
+    display: flex;
+    justify-content: center;
+    align-items:center; 
+}
+.email-border{
+    border: solid,black,2px;
+    background-color:rgb(250, 249, 249);
+    margin-top: 80px;
+    width: 650px;
+    height: 400px;
+    border-radius: 1rem;
+}
+.email-heading{
+    text-align: center;
+    margin-top: 30px;
+    font-weight: bolder;
+}
+.email-entering{
+     margin-top: 40px;
+    margin-left: 15px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.email-box{
+     width: 360px;
+     margin-left:40px;
+}
+.email-button{
+     margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+.email-cancel{
+      margin-top: 20px;
+     display: flex;
+    justify-content: center;
+    align-items:center;
+}
