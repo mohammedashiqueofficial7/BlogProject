@@ -60,39 +60,41 @@ function BlogsVerify() {
       <div>
         <h4 className="user-detail">Blog Details</h4>
       </div>
-      <table class="table table-top">
-        <thead>
-          <tr>
-            <th scope="col">SL.NO</th>
-            <th scope="col">BLOG ID</th>
-            <th scope="col">BLOG TITLE</th>
-            <th scope="col">UPLOAD DATE</th>
-            <th scope="col">BLOG STATUS</th>
-            <th scope="col">View Comments</th>
-            <th scope="col">ACTION</th>
-          </tr>
-        </thead>
-        <tbody >
-            {
-                dashboardData.map((blog,idx) => (
-                    <tr key={blog._id}>
-                    <th scope="row">{idx+1}</th>
-                    <td>{blog._id}</td>
-                    <td>{blog.title}</td>
+      <div className="table-responsive">
+        <table className="table table-top">
+          <thead>
+            <tr>
+              <th scope="col">SL.NO</th>
+              <th scope="col">BLOG ID</th>
+              <th scope="col">BLOG TITLE</th>
+              <th scope="col">UPLOAD DATE</th>
+              <th scope="col">BLOG STATUS</th>
+              <th scope="col">View Comments</th>
+              <th scope="col">ACTION</th>
+            </tr>
+          </thead>
+          <tbody >
+              {
+                  dashboardData.map((blog,idx) => (
+                      <tr key={blog._id}>
+                      <th scope="row">{idx+1}</th>
+                      <td>{blog._id}</td>
+                      <td>{blog.title}</td>
 
-                    <td>{new Date(blog.createdAt).toLocaleDateString()}</td>
-                    <td>{blog.verified?"Verified":"Not Verified"}</td>
-                    <td><button onClick={()=>onclick(blog._id)} type="button" class="btn btn-dark" ><Eye/></button></td>
-                    <td>
-                        <button onClick={()=>handlesubmit(blog._id)} type="button" class="btn btn-success "><CircleCheck/></button>
-                        <button onClick={()=>handledelete(blog._id)} type="button" class="btn btn-danger"><CircleX /></button>
-                    </td>
-                    </tr>
-                ))
-            }
+                      <td>{new Date(blog.createdAt).toLocaleDateString()}</td>
+                      <td>{blog.verified?"Verified":"Not Verified"}</td>
+                      <td><button onClick={()=>onclick(blog._id)} type="button" className="btn btn-dark" ><Eye/></button></td>
+                      <td>
+                          <button onClick={()=>handlesubmit(blog._id)} type="button" className="btn btn-success "><CircleCheck/></button>
+                          <button onClick={()=>handledelete(blog._id)} type="button" className="btn btn-danger"><CircleX /></button>
+                      </td>
+                      </tr>
+                  ))
+              }
 
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

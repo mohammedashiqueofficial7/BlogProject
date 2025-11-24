@@ -45,6 +45,13 @@ function Layout() {
                   <span>AI Chat</span>
                 </Link>
               </li>
+
+              <li className="nav-item">
+                <Link to="/profile" className="nav-link">
+                  <CircleUserRound size={18} />
+                  <span>Profile</span>
+                </Link>
+              </li>
             </ul>
           </div>
 

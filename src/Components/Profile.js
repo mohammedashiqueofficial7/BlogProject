@@ -31,12 +31,29 @@ function Profile() {
   return (
     <div className="main-card">
       <div className="profile-main-border">
-        <h4 className="box1">Full name</h4> <br />
-        <p>{profile.fullname}</p>
-        <h4 className="box2">Email address</h4> <br />
-        <p>{profile.email}</p>
-        <h4 className="box3">phone number</h4> <br />
-        <p>{profile.phonenumber}</p>
+        <div className="profile-header">
+          <div className="avatar">
+            <span>{profile.fullname ? profile.fullname.charAt(0).toUpperCase() : 'U'}</span>
+          </div>
+          <h2>{profile.fullname}</h2>
+          <p className="profile-role">User</p>
+        </div>
+
+        <div className="profile-info">
+          <div className="info-item">
+            <h4 className="box1">Full Name</h4>
+            <p>{profile.fullname}</p>
+          </div>
+          <div className="info-item">
+            <h4 className="box2">Email Address</h4>
+            <p>{profile.email}</p>
+          </div>
+          <div className="info-item">
+            <h4 className="box3">Phone Number</h4>
+            <p>{profile.phonenumber}</p>
+          </div>
+        </div>
+
         <div className="profile-button">
           <Link to="/settings" style={{ textDecoration: "none" }}>
             <button className="button">Edit Profile</button>

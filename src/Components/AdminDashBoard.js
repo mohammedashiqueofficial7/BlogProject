@@ -32,13 +32,6 @@ function AdminDashBoard() {
             <Link to="/reports">Reports</Link>
             <Link to="/reviews">Reviews</Link>
             {/* <Link to="/comments">Comments</Link> */}
-            <hr />
-            <Link to="/userHomepage">User Homepage</Link>
-            <Link to="/profile">Profile</Link>
-            <Link to="/settings">Settings</Link>
-            <Link to="/favourites">Favourites</Link>
-            <Link to="/about">About</Link>
-            <Link to="/Contactus">Contact Us</Link>
           </nav>
           <div>
             <button
@@ -57,6 +50,12 @@ function AdminDashBoard() {
             <h1>Dashboard</h1>
             <input type="search" placeholder="Search..." />
           </header>
+          <hr />
+
+          <section class="overview">
+            <h2>Overview</h2>
+            <p>Welcome to the Admin Dashboard. Here you can manage users, blogs, reports, and reviews. Monitor key metrics and take necessary actions to maintain the platform.</p>
+          </section>
 
           <section class="cards">
             <div class="card">

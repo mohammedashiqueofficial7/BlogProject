@@ -1,16 +1,61 @@
 .user-detail{
     margin-top: 10px;
    text-align: center;
-   
+   font-size: 1.5rem;
+   color: #495057;
+   margin-bottom: 20px;
 }
 .table-top{
     margin-top: 25px;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+.table-top th,
+.table-top td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+    border-right: 1px solid #e9ecef;
+}
+.table-top th {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #0056b3;
+    border-right: 1px solid #0056b3;
+}
+.table-top tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+.table-top tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+.table-top tbody tr:hover {
+    background-color: #e3f2fd;
+    border-left: 4px solid #007bff;
+}
+.table-top tbody tr:last-child td {
+    border-bottom: 2px solid #007bff;
+}
+.table-responsive {
+    margin-top: 25px;
 }
 .user-del-button{
-    background-color: rgb(238, 4, 4);
+    background-color: #6c757d;
     color: white;
-    padding: 10px 10px;
+    padding: 8px 12px;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
+    font-size: 0.9rem;
+}
+.user-del-button:hover {
+    background-color: #5a6268;
 }

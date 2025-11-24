@@ -42,129 +42,138 @@ function Contactus() {
     }
   };
   return (
-    <div>
-      <div className="contact-main">
-        <div>
-          <h2 className="contact-head">CONTACT US</h2>
-        </div>
+    <div className="contact-container">
+      <div className="contact-header">
+        <h1>CONTACT US</h1>
+        <p>Get in touch with us. We're here to help!</p>
+      </div>
 
-        <hr className="about-hr" />
+      <div className="contact-content">
+        {/* Left Section - Contact Info */}
+        <div className="contact-info-section">
+          <div className="contact-image">
+            <img src={contact} alt="Contact" />
+          </div>
 
-        <div class="contact-info">
-          <div className="image-section">
-            <img src={contact} width="600px" alt="Login" />
-
-            <h2>Address</h2>
-            <div class="info-item">
+          <div className="contact-details">
+            <div className="detail-item">
+              <h3>📍 Address</h3>
               <p>
-                Mada Center 8th floor, 379 Hudson St,
-                <br />
+                Mada Center 8th floor, 379 Hudson St,<br />
                 New York, NY 10018 US
               </p>
             </div>
 
-            <h2>Lets Talk</h2>
-            <div class="info-item">
+            <div className="detail-item">
+              <h3>📞 Let's Talk</h3>
               <a href="tel:+18001236879">+1 800 1236879</a>
             </div>
 
-            <h2>General Support</h2>
-            <div class="info-item">
+            <div className="detail-item">
+              <h3>📧 General Support</h3>
               <a href="mailto:contact@example.com">contact@example.com</a>
             </div>
           </div>
+
+          <div className="social-section">
+            <h3>Follow Us</h3>
+            <div className="social-icons">
+              <a href="#" aria-label="Facebook">
+                <i className="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" aria-label="Twitter">
+                <i className="fab fa-twitter"></i>
+              </a>
+              <a href="#" aria-label="LinkedIn">
+                <i className="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" aria-label="YouTube">
+                <i className="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
         </div>
-        <hr className="about-hr" />
 
-        <h2 className="contact-msg">SEND A MESSAGE TO US</h2>
+        {/* Right Section - Contact Form */}
+        <div className="contact-form-section">
+          <div className="form-header">
+            <h2>Send a Message</h2>
+            <p>Reach out and we'll get in touch within 24 hours.</p>
+          </div>
 
-        <hr className="about-hr" />
+          <form onSubmit={handleSubmit} className="contact-form">
+            <div className="form-row">
+              <div className="form-group">
+                <input
+                  type="text"
+                  name="firstName"
+                  placeholder="First name"
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  type="text"
+                  name="lastName"
+                  placeholder="Last name"
+                  required
+                />
+              </div>
+            </div>
 
-        {/* <!-- Right section --> */}
-
-        <div class="right">
-          <h2>Contact us</h2>
-          <p>Reach out and we’ll get in touch within 24 hours.</p>
-          <form onSubmit={handleSubmit}>
-            <div class="form-row">
+            <div className="form-group">
               <input
-                type="text"
-                name="firstName"
-                placeholder="First name"
-                required
-              />
-              <input
-                type="text"
-                name="lastName"
-                placeholder="Last name"
+                type="email"
+                name="email"
+                placeholder="Email address"
                 required
               />
             </div>
-            <input
-              type="email"
-              name="email"
-              placeholder="Email address"
-              required
-            />
-            <p contact-question>What is the purpose of your inquiry?</p>
-            <div class="form-row">
-              <select name="inquiryType">
-                <option>Support</option>
-                <option>Sales</option>
-                <option>Partnership</option>
-                <option>Feedback</option>
-                <option>Others</option>
-              </select>
-              <select name="location">
-                <option>Thiruvananthauram</option>
-                <option>Kollam</option>
-                <option>Pathanamthitta</option>
-                <option>Alappuzha</option>
-                <option>Kottayam</option>
-                <option>Idukki</option>
-                <option>Ernakulam</option>
-                <option>Thrissur</option>
-                <option>Palakkad</option>
-                <option>Malappuram</option>
-                <option>Kozhikkod</option>
-                <option>Wayanad</option>
-                <option>Kannur</option>
-                <option>Kasargod</option>
-              </select>
-            </div>
-            <textarea
-              name="message"
-              placeholder="Leave us a message..."
-            ></textarea>
 
-            <button className="contact-butn" type="submit">
+            <div className="form-row">
+              <div className="form-group">
+                <select name="inquiryType" required>
+                  <option value="">Purpose of inquiry</option>
+                  <option>Support</option>
+                  <option>Sales</option>
+                  <option>Partnership</option>
+                  <option>Feedback</option>
+                  <option>Others</option>
+                </select>
+              </div>
+              <div className="form-group">
+                <select name="location" required>
+                  <option value="">Select location</option>
+                  <option>Thiruvananthapuram</option>
+                  <option>Kollam</option>
+                  <option>Pathanamthitta</option>
+                  <option>Alappuzha</option>
+                  <option>Kottayam</option>
+                  <option>Idukki</option>
+                  <option>Ernakulam</option>
+                  <option>Thrissur</option>
+                  <option>Palakkad</option>
+                  <option>Malappuram</option>
+                  <option>Kozhikkod</option>
+                  <option>Wayanad</option>
+                  <option>Kannur</option>
+                  <option>Kasargod</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="form-group">
+              <textarea
+                name="message"
+                placeholder="Leave us a message..."
+                required
+              ></textarea>
+            </div>
+
+            <button className="contact-btn" type="submit">
               Send Message
             </button>
           </form>
-        </div>
-      </div>
-
-      <div>
-        <title>Social Media Icons</title>
-
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        />
-
-        <div class="social-icons">
-          <a href="#">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="#">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="#">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <a href="#">
-            <i class="fab fa-youtube"></i>
-          </a>
         </div>
       </div>
     </div>

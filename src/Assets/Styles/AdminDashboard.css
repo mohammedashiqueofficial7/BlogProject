@@ -7,7 +7,7 @@
 
 .main-dashboard {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: #f8f9fa;
 }
 
 .container {
@@ -25,7 +25,7 @@
 
 .sidebar {
   width: 300px;
-  background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+  background: #6c757d;
   color: white;
   padding: 2rem;
   box-shadow: 2px 0 5px rgba(0,0,0,0.1);
@@ -71,6 +71,24 @@ header input[type="search"] {
   border-radius: 5px;
 }
 
+.overview {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+}
+
+.overview h2 {
+  margin-bottom: 0.5rem;
+  color: #495057;
+}
+
+.overview p {
+  color: #6c757d;
+  line-height: 1.6;
+}
+
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -78,17 +96,16 @@ header input[type="search"] {
 }
 
 .card {
-  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  background: #ffffff;
   padding: 1.5rem;
   border-radius: 15px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   border: 1px solid #dee2e6;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 8px rgba(0,0,0,0.15);
 }
 
 .card h3 {
@@ -101,7 +118,7 @@ header input[type="search"] {
 .card p {
   font-size: 2rem;
   font-weight: bold;
-  color: #667eea;
+  color: #495057;
 }
 .admin-logout-btn {
   margin-top: 2rem;
@@ -112,9 +129,7 @@ header input[type="search"] {
   transition: all 0.3s ease;
 }
 
-.admin-logout-btn:hover {
-  transform: scale(1.05);
-}
+/* Removed hover transform for cleaner look */
 
 /* Responsive */
 @media (max-width: 768px) {

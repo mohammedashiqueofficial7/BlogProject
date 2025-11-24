@@ -50,7 +50,7 @@ function App() {
              <Route path="/reports" element={<Reports />} />
              <Route path="/comments/:id" element={<Comments />} />
           <Route element={<Layout />}>
-            <Route path="/" element={<Navigate to="/userHomepage" />}></Route>
+            <Route path="/" element={<Navigate to="/landing" />}></Route>
             <Route path="/landing" element={<Landing />} />
             <Route path="/userlogin" element={<User />} />
             <Route path="/about" element={<About />} />

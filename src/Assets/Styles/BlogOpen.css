@@ -1,25 +1,33 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f9f9f9;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   color: #333;
+  min-height: 100vh;
 }
 
 .blog-container {
-  max-width: 800px;
+  max-width: 900px;
   margin: auto;
-  padding: 20px;
-  background: #fff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  padding: 2rem;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border-radius: 15px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .blog-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e9ecef;
 }
 
 .blog-header h1 {
-  color: #4a90e2;
+  color: #007bff;
+  font-size: 2.5rem;
+  font-weight: 700;
 }
 
 .blog-banner {
@@ -45,19 +53,35 @@ body {
 }
 
 .blog-comments {
-  margin-top: 40px;
+  margin-top: 3rem;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border: 1px solid #dee2e6;
 }
 
 .blog-comments h3 {
-  border-bottom: 2px solid #4a90e2;
-  padding-bottom: 5px;
+  color: #007bff;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .comment {
-  background-color: #f1f1f1;
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 5px;
+  background: #ffffff;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  border-left: 4px solid #007bff;
+}
+.comment strong {
+  color: #495057;
+}
+.comment-date {
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin-top: 0.5rem;
 }
 
 .comment-form {
@@ -74,37 +98,84 @@ body {
 }
 
 .comment-form button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: #007bff;
   color: white;
   border: none;
   border-radius: 25px;
   cursor: pointer;
   font-weight: 600;
   transition: all 0.3s ease;
+  font-size: 1rem;
 }
 
 .comment-form button:hover {
+  background: #0056b3;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 8px rgba(0,123,255,0.3);
 }
 .subhead{
   font-size: small;
 }
 
 .btn-submit {
-  background: linear-gradient(90deg, #28a745 0%, #20c997 100%);
+  background: #28a745;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 0.5rem 1rem;
   border-radius: 25px;
   cursor: pointer;
   font-weight: 600;
   transition: all 0.3s ease;
+  font-size: 0.9rem;
 }
 
 .btn-submit:hover {
+  background: #218838;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+  box-shadow: 0 4px 8px rgba(40,167,69,0.3);
+}
+
+.suggestion-card {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  margin-bottom: 1rem;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.suggestion-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.suggestion-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.suggestion-card .card-body {
+  padding: 1rem;
+}
+
+.suggestion-card .card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 0.5rem;
+}
+
+.suggestion-card .btn {
+  background: #007bff;
+  border: none;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.suggestion-card .btn:hover {
+  background: #0056b3;
 }

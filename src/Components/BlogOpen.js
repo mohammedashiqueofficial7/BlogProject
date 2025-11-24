@@ -189,9 +189,8 @@ function BlogOpen() {
         <div class="d-flex flex-column mb-3" style={{ width: "18rem" }}>
           {suggestion.map((blog) => (
             <div
-              class="card mb-2"
+              className="suggestion-card"
               key={blog._id}
-              style={{ backgroundColor: "bisque" }}
             >
               <img
                 src={"http://localhost:3000/uploads/" + blog.image}

@@ -29,39 +29,41 @@ function Reviews() {
       <div>
         <h4 className="user-detail">Reviews Details</h4>
       </div>
-      <table class="table table-top">
-        <thead>
-          <tr>
-            <th scope="col">Sl.no</th>
-             <th scope="col">Fullname</th>
-            <th scope="col">email</th>
-            <th scope="col">blog title</th>
-            <th scope="col">Ratings</th>
-            <th scope="col">Rated at</th>
-            <th scope="col">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {reviews.map((review, index) => (
-            <tr key={review._id}>
-              <th scope="row">{index + 1}</th>
-              <td>{review.userid.fullname}</td>
-              <td>{review.userid.email}</td>
-              <td>{review.blogid.title}</td>
-              <td>{review.ratings}<Star/></td>
-               <td>{review.createdAt}</td>
-              <td>
-                <button
-                  className="user-del-button"
-                  onClick={() => handledelete(review._id)}
-                >
-                  <Trash />
-                </button>
-              </td>
+      <div className="table-responsive">
+        <table className="table table-top">
+          <thead>
+            <tr>
+              <th scope="col">Sl.no</th>
+               <th scope="col">Fullname</th>
+              <th scope="col">email</th>
+              <th scope="col">blog title</th>
+              <th scope="col">Ratings</th>
+              <th scope="col">Rated at</th>
+              <th scope="col">Action</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {reviews.map((review, index) => (
+              <tr key={review._id}>
+                <th scope="row">{index + 1}</th>
+                <td>{review.userid.fullname}</td>
+                <td>{review.userid.email}</td>
+                <td>{review.blogid.title}</td>
+                <td>{review.ratings}<Star/></td>
+                 <td>{review.createdAt}</td>
+                <td>
+                  <button
+                    className="user-del-button"
+                    onClick={() => handledelete(review._id)}
+                  >
+                    <Trash />
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
