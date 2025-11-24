@@ -25,14 +25,21 @@ function Contactus() {
       message,
     };
 
-    const response = await axios.post(
-      "http://localhost:3000/contact/sendmessage",
-      formData
-    );
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/contact/sendmessage",
+        formData
+      );
 
-    const result = response.data;
-    toast.success("Message sent successfully");
-    alert(result.message || result.error);
+      const result = response.data;
+      if (result.message) {
+        toast.success("Message sent successfully!");
+      } else if (result.error) {
+        toast.error("Message declined: " + result.error);
+      }
+    } catch (error) {
+      toast.error("Message declined: Failed to send message. Please try again.");
+    }
   };
   return (
     <div>

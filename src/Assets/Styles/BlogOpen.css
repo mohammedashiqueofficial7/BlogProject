@@ -76,20 +76,35 @@ body {
 .comment-form button {
   margin-top: 10px;
   padding: 10px 20px;
-  background-color: #4a90e2;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 25px;
   cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.comment-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
 }
 .subhead{
   font-size: small;
 }
 
-.btn-submit{
-  background-color: #1296cf;
+.btn-submit {
+  background: linear-gradient(90deg, #28a745 0%, #20c997 100%);
   color: white;
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;}
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+}

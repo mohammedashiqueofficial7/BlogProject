@@ -1,110 +1,217 @@
- * {
+/* Modern Registration Page Styles */
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.reg-main-div{ 
-  margin-top: 0px;
-}
-
-body, html {
-  height: 100%;
-  /* background-color: #eae3e3; */
-}
-
-.container2 {
+.register-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #4facfe 100%);
   display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-  margin-top: 100px;
- 
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
 }
 
- .reg-section{
+.register-container {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  min-height: 650px;
+}
+
+.register-card {
   flex: 1;
-  background-color: #fff;
-  padding: 20px;
+  padding: 3rem 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-} 
-
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #5c27fe;
-  margin-bottom: 30px;
+  min-width: 400px;
 }
 
-h1 {
-  font-size: 32px;
-  color: #1a1a1a;
-  margin-top: 50px;
-}
-
-.reg-subtitle {
-  color: #7d7d7d;
-  margin-bottom: 30px;
-}
-
-
-
-form label {
-  font-size: 14px;
-  margin: 10px 0 5px;
-  display: block;
-}
-
-form input {
-  padding: 12px;
-  width: 100%;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  margin-bottom: 10px;
-}
-
-.reg-options {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 10px 0;
-  font-size: 15px;
-}
-
-.registration-button {
-  background-color: #5c27fe;
-  color: white;
-  padding: 14px;
-  width: 100%;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  margin-bottom: 20px;
-  cursor: pointer;
-}
-
-.reg-acc{
+.register-header {
   text-align: center;
-  font-size: 14px;
+  margin-bottom: 2rem;
+}
+
+.register-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.register-logo h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.register-subtitle {
   color: #666;
+  font-size: 1.1rem;
+  margin: 0;
 }
-.register a {
-  color: #5c27fe;
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  color: #f5576c;
+  z-index: 1;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: 2px solid #e1e5e9;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+}
+
+.input-wrapper input:focus {
+  outline: none;
+  border-color: #f5576c;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(245, 87, 108, 0.1);
+}
+
+.register-btn {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.register-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(245, 87, 108, 0.3);
+}
+
+.register-footer {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.login-prompt {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.login-link {
+  color: #f5576c;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
 }
 
-.reg-image-section {
+.login-link:hover {
+  text-decoration: underline;
+}
+
+.register-image {
   flex: 1;
+  position: relative;
   overflow: hidden;
-  border-radius: 1rem;
+  min-width: 400px;
 }
 
-.reg-image-section img{
+.register-image img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.image-overlay h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.image-overlay p {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .register-container {
+    flex-direction: column;
+    margin: 1rem;
+    min-height: auto;
+  }
+
+  .register-card {
+    padding: 2rem 1.5rem;
+    min-width: auto;
+  }
+
+  .register-image {
+    min-width: auto;
+    height: 300px;
+  }
+
+  .register-logo h1 {
+    font-size: 2rem;
+  }
+
+  .image-overlay {
+    padding: 1.5rem;
+  }
+
+  .image-overlay h3 {
+    font-size: 1.25rem;
+  }
 }

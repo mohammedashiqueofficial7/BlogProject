@@ -32,6 +32,13 @@ function AdminDashBoard() {
             <Link to="/reports">Reports</Link>
             <Link to="/reviews">Reviews</Link>
             {/* <Link to="/comments">Comments</Link> */}
+            <hr />
+            <Link to="/userHomepage">User Homepage</Link>
+            <Link to="/profile">Profile</Link>
+            <Link to="/settings">Settings</Link>
+            <Link to="/favourites">Favourites</Link>
+            <Link to="/about">About</Link>
+            <Link to="/Contactus">Contact Us</Link>
           </nav>
           <div>
             <button

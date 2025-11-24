@@ -128,7 +128,7 @@ function ChatAi() {
 
   return (
     <div className="ai-main">
-      <div>
+      <div className="ai-header">
         <h1 className="ai-heading">Chat with AI</h1>
         <p className="ai-quote">
           Welcome to the Chat AI page. Here you can interact with our AI-powered
@@ -139,50 +139,69 @@ function ChatAi() {
           chat with our AI. Enjoy your experience!
         </p>
       </div>
-      <div className="d-flex">
-        <div className="chat-container ai-chat">
-          <div className="chat-box" id="chat-box ">
-            <div className="chat-message">
-              {msgHistory.map((msg, index) => (
-                <div key={index}>
-                  {msg.role === "user" ? (
-                    <p className="person-msg text-end">{msg.text}</p>
-                  ) : (
-                    <p className="ai-message w-75">{msg.text}</p>
+
+      <div className="chat-wrapper">
+        <div className="chat-container">
+          <div className="chat-messages" id="chat-messages">
+            {msgHistory.length === 0 ? (
+              <div className="welcome-message">
+                <div className="ai-avatar">
+                  <span>🤖</span>
+                </div>
+                <div className="message-bubble ai-bubble">
+                  <p>Hello! I'm your AI assistant. How can I help you today?</p>
+                </div>
+              </div>
+            ) : (
+              msgHistory.map((msg, index) => (
+                <div key={index} className={`message-wrapper ${msg.role === "user" ? "user-wrapper" : "ai-wrapper"}`}>
+                  {msg.role === "assistant" && (
+                    <div className="ai-avatar">
+                      <span>🤖</span>
+                    </div>
+                  )}
+                  <div className={`message-bubble ${msg.role === "user" ? "user-bubble" : "ai-bubble"}`}>
+                    <p>{msg.text}</p>
+                  </div>
+                  {msg.role === "user" && (
+                    <div className="user-avatar">
+                      <span>👤</span>
+                    </div>
                   )}
                 </div>
-              ))}
+              ))
+            )}
+          </div>
+
+          <div className="chat-input-area">
+            <div className="input-container">
+              <input
+                type="text"
+                className="message-input"
+                placeholder="Type your message..."
+                ref={textref}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    handlesend();
+                  }
+                }}
+              />
+              <button
+                type="button"
+                className="send-button"
+                onClick={handlesend}
+              >
+                <SendHorizontal size={20} />
+              </button>
             </div>
           </div>
-          <div class="form-floating mb-3 position-relative" id="input-area">
-            <input
-              type="text"
-              class="form-control"
-              id="floatingInput"
-              placeholder="Type your message..."
-              ref={textref}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  handlesend();
-                }
-              }}
-            />
-            <label for="floatingInput">Type your message...</label>
-            <button
-              type="button"
-              style={{ position: "absolute", right: "1%", top: "7%" }}
-              id="ai-but"
-              onClick={handlesend}
-            >
-              Send
-              <SendHorizontal />
-            </button>
-          </div>
-          <h5 className="ai-bottom">
-            Note : AI can make mistakes. Please verify information from reliable
-            sources.
-          </h5>
         </div>
+      </div>
+
+      <div className="ai-footer">
+        <p className="ai-note">
+          Note: AI can make mistakes. Please verify information from reliable sources.
+        </p>
       </div>
     </div>
   );

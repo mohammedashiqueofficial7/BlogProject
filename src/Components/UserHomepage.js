@@ -1,134 +1,217 @@
 import React, { useEffect, useState } from "react";
 import "../Assets/Styles/UserHomepage.css";
-import img from "../Assets/Images/pixelcut-export.png";
-import canvas from "../Assets/Images/canvas.jpg";
-import blog2 from "../Assets/Images/blog2.jpg";
-import blog3 from "../Assets/Images/blog3.jpg";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { Crown, Heart, Info } from "lucide-react";
+import { Search, TrendingUp, Clock, Eye, Heart, BookOpen, Filter } from "lucide-react";
 
 function UserHomepage() {
   const [blogs, setBlogs] = useState([]);
   const [search, setSearch] = useState("");
-  const [search1, setSearch1] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [activeFilter, setActiveFilter] = useState('all');
+
   useEffect(() => {
-    axios
-      .get("http://localhost:3000/blogmodel/getblogs?search=" + search)
-      .then((result) => {
-        setSearch1(result.data);
-      });
+    fetchBlogs();
+  }, []);
 
-    axios
-      .get("http://localhost:3000/blogmodel/viewblog3" )
-      .then((result) => {
-       setBlogs (result.data);
-      });
-
-    axios
-      .get("http://localhost:3000/blogmodel/viewblog4")
-      .then((result) => {
-        setSearch1(result.data);
-      });
+  useEffect(() => {
+    if (search.trim()) {
+      searchBlogs();
+    } else {
+      setSearchResults([]);
+    }
   }, [search]);
 
+  const fetchBlogs = async () => {
+    try {
+      setLoading(true);
+      // Try to fetch all blogs first, fallback to verified blogs
+      const response = await axios.get("http://localhost:3000/blogmodel/getblogs");
+      setBlogs(response.data);
+    } catch (error) {
+      console.error("Error fetching blogs:", error);
+      // Fallback to original endpoint
+      try {
+        const fallbackResponse = await axios.get("http://localhost:3000/blogmodel/viewblog3");
+        setBlogs(fallbackResponse.data);
+      } catch (fallbackError) {
+        console.error("Fallback fetch failed:", fallbackError);
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  const searchBlogs = async () => {
+    try {
+      const response = await axios.get(`http://localhost:3000/blogmodel/getblogs?search=${search}`);
+      setSearchResults(response.data);
+    } catch (error) {
+      console.error("Error searching blogs:", error);
+    }
+  };
+
+  const displayBlogs = search.trim() ? searchResults : blogs;
 
   return (
-    <div>
-      <div class="cap_main">
+    <div className="homepage-wrapper">
+      {/* Hero Section */}
+      <section className="homepage-hero">
+        <div className="hero-content-home">
+          <div className="hero-badge-home">
+            <TrendingUp size={16} />
+            <span>Discover Amazing Content</span>
+          </div>
+          
+          <h1 className="hero-title-home">
+            Welcome to the <span className="text-gradient">Blogging World</span>
+          </h1>
+          
+          <p className="hero-subtitle-home">
+            Share your thoughts, explore diverse perspectives, and connect with a community of passionate writers and readers.
+          </p>
 
-        <div className="blog_head">
-          Hey, Welcome to the Blogging World <br />
-          <span className="blog_head_span1">Share your thoughts,</span>
-          <br />
-          <span className="blog_head_span2">Explore the world of blogs.</span>
-        </div>
-
-        <div class="caption">
-          inspirational designs, illustrations, and graphic elements from the
-          worlds best designers.<br></br>
-          Want more inspiration?
-        </div>
-      </div>
-      <div className="d-flex justify-center">
-        <div class="d-flex mx-auto mt-5">
-          <div class="search_but_head">
-            <div class="form-floating mb-3">
+          {/* Search Section */}
+          <div className="search-container">
+            <div className="search-wrapper">
+              <Search size={20} className="search-icon" />
               <input
-                type="email"
-                class="form-control"
-                id="floatingInput"
+                type="text"
+                className="search-input"
+                placeholder="Search for blogs, topics, or authors..."
+                value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
-              <label for="floatingInput">Search your interests</label>
             </div>
           </div>
         </div>
-      </div>
-      <div className="grid_adjust">
-        <div class="container text-center">
-          <div class="row">
-            {blogs.map((blog) => {
-              return (
-                <div class="col-12">
-                  <div class="card-user">
+      </section>
+
+      {/* Filter Section */}
+      <section className="filter-section">
+        <div className="container">
+          <div className="filter-header">
+            <h2 className="filter-title">
+              {search.trim() ? `Search Results for "${search}"` : 'Latest Blog Posts'}
+            </h2>
+            <div className="filter-actions">
+              <button 
+                className={`filter-btn ${activeFilter === 'all' ? 'active' : ''}`}
+                onClick={() => setActiveFilter('all')}
+              >
+                <BookOpen size={16} />
+                All Posts
+              </button>
+              <button 
+                className={`filter-btn ${activeFilter === 'recent' ? 'active' : ''}`}
+                onClick={() => setActiveFilter('recent')}
+              >
+                <Clock size={16} />
+                Recent
+              </button>
+              <button 
+                className={`filter-btn ${activeFilter === 'popular' ? 'active' : ''}`}
+                onClick={() => setActiveFilter('popular')}
+              >
+                <TrendingUp size={16} />
+                Popular
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Blog Grid */}
+      <section className="blogs-section">
+        <div className="container">
+          {loading ? (
+            <div className="loading-state">
+              <div className="loading-spinner"></div>
+              <p>Loading amazing content...</p>
+            </div>
+          ) : displayBlogs.length > 0 ? (
+            <div className="blogs-grid">
+              {displayBlogs.map((blog, index) => (
+                <article key={blog._id} className="blog-card card-modern animate-fade-in" style={{animationDelay: `${index * 0.1}s`}}>
+                  <div className="blog-image-container">
                     <img
-                      src={"http://localhost:3000/uploads/" + blog.image}
-                      class="card-img-top size"
-                      alt="..."
+                      src={`http://localhost:3000/uploads/${blog.image}`}
+                      alt={blog.title}
+                      className="blog-image"
                     />
-                    <div class="card-body">
-                      <h5 class="card-title">{blog.title}</h5>
-                      <p class="card-text">{/* {blog.description} */}</p>
+                    <div className="blog-overlay">
                       <Link
-                        to={"/BlogOpen" + "/" + blog._id}
-                        style={{ textDecoration: "none" }}
+                        to={`/BlogOpen/${blog._id}`}
+                        className="blog-overlay-btn"
                       >
-                        <button className="view-button">View More</button>
+                        <Eye size={18} />
+                        Read More
                       </Link>
                     </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-      <div>
-
-      </div>
-      <div>
-        <div className="grid_adjust ">
-          <div class="container text-center">
-            <div class="row">
-              {search1.map((blog) => {
-                return (
-                  <div class="col-6">
-                    <div class="card">
-                      <img
-                        src={"http://localhost:3000/uploads/" + blog.image}
-                        class="card-img-top size"
-                        alt="..."
-                      />
-                      <div class="card-body">
-                        <h5 class="card-title">{blog.title}</h5>
-                        <p class="card-text">{/* {blog.description} */}</p>
-                        <Link
-                          to={"/BlogOpen" + "/" + blog._id}
-                          style={{ textDecoration: "none" }}
-                        >
-                          <button className="view-button">View More</button>
-                        </Link>
+                  
+                  <div className="blog-content">
+                    <div className="blog-meta">
+                      <span className="blog-category">{blog.category || 'General'}</span>
+                      <span className="blog-date">
+                        <Clock size={14} />
+                        {new Date(blog.createdAt).toLocaleDateString()}
+                      </span>
+                    </div>
+                    
+                    <h3 className="blog-title">{blog.title}</h3>
+                    
+                    <p className="blog-excerpt">
+                      {blog.description ? blog.description.substring(0, 120) + '...' : 'Click to read this amazing blog post and discover new insights.'}
+                    </p>
+                    
+                    <div className="blog-actions">
+                      <Link
+                        to={`/BlogOpen/${blog._id}`}
+                        className="btn-modern btn-primary blog-read-btn"
+                      >
+                        Read Article
+                      </Link>
+                      
+                      <div className="blog-stats">
+                        <button className="stat-btn">
+                          <Heart size={16} />
+                          <span>{blog.likes || 0}</span>
+                        </button>
+                        <button className="stat-btn">
+                          <Eye size={16} />
+                          <span>{blog.views || 0}</span>
+                        </button>
                       </div>
                     </div>
                   </div>
-                );
-              })}
+                </article>
+              ))}
             </div>
-          </div>
+          ) : (
+            <div className="empty-state">
+              <div className="empty-icon">
+                <Search size={48} />
+              </div>
+              <h3>No blogs found</h3>
+              <p>
+                {search.trim() 
+                  ? `No results found for "${search}". Try different keywords.`
+                  : 'No blog posts available at the moment. Check back later!'}
+              </p>
+              {search.trim() && (
+                <button 
+                  className="btn-modern btn-secondary"
+                  onClick={() => setSearch('')}
+                >
+                  Clear Search
+                </button>
+              )}
+            </div>
+          )}
         </div>
-      </div>
+      </section>
     </div>
   );
 }

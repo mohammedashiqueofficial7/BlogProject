@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Newreg from "../Assets/Images/newregistrations.jpg";
 import axios from "axios";
 import { toast } from "sonner";
-import { Info } from "lucide-react";
+import { UserPlus, Mail, Lock, Phone, User } from "lucide-react";
 
 function Registration() {
   const navigate = useNavigate();
@@ -35,75 +35,89 @@ function Registration() {
   };
 
   return (
-    <div>
-      
-      <div className="container1 main-div">
-        <div>
-          <div className="container2 reg-main-div">
-            <div className="reg-section">
-              <h6 className="reg-subtitle">
-                <h1>Welcome back!</h1>
-                Please enter your credentials to access your account
-              </h6>
+    <div className="register-page">
+      <div className="register-container">
+        <div className="register-card">
+          <div className="register-header">
+            <div className="register-logo">
+              <UserPlus size={32} />
+              <h1>Join Our Community</h1>
+            </div>
+            <p className="register-subtitle">Create your account and start your journey</p>
+          </div>
 
-              <form onSubmit={handleSubmit}>
-                <label>Fullname*</label>
+          <form onSubmit={handleSubmit} className="register-form">
+            <div className="form-group">
+              <label>Full Name</label>
+              <div className="input-wrapper">
+                <User size={20} className="input-icon" />
                 <input
                   type="text"
                   name="fullname"
-                  id="floatingInput"
-                  placeholder="examplename"
+                  placeholder="Enter your full name"
                   required
                 />
+              </div>
+            </div>
 
-                <label>Email*</label>
+            <div className="form-group">
+              <label>Email Address</label>
+              <div className="input-wrapper">
+                <Mail size={20} className="input-icon" />
                 <input
                   type="email"
                   name="email"
-                  id="floatingInput"
-                  placeholder="mail@simmmpple.com"
+                  placeholder="Enter your email"
                   required
                 />
+              </div>
+            </div>
 
-                <label>Phone number*</label>
+            <div className="form-group">
+              <label>Phone Number</label>
+              <div className="input-wrapper">
+                <Phone size={20} className="input-icon" />
                 <input
-                  type="phonenumber"
+                  type="tel"
                   name="phonenumber"
-                  id="floatingInput"
-                  placeholder="10 digit phone number"
+                  placeholder="Enter your phone number"
                   required
                 />
+              </div>
+            </div>
 
-                <label>Password*</label>
+            <div className="form-group">
+              <label>Password</label>
+              <div className="input-wrapper">
+                <Lock size={20} className="input-icon" />
                 <input
                   type="password"
                   name="password"
-                  id="floatingInput"
-                  placeholder="Min. 8 characters"
+                  placeholder="Create a strong password"
                   minLength="8"
                   required
                 />
-
-                <button type="submit" className="registration-button">
-                  Register
-                </button>
-              </form>
-
-              <div className="reg-options">
-                <a href="#">Forgot password?</a>
               </div>
-
-              <p className="reg-acc">
-                Already have an account{" "}
-                <Link to="/userlogin" href="#">
-                  Login here
-                </Link>
-              </p>
             </div>
 
-            <div className="reg-image-section">
-              <img src={Newreg} width="500px" alt="Login" />
-            </div>
+            <button type="submit" className="register-btn">
+              Create Account
+            </button>
+          </form>
+
+          <div className="register-footer">
+            <p className="login-prompt">
+              Already have an account?
+              <Link to="/userlogin" className="login-link"> Sign in here</Link>
+            </p>
+          </div>
+        </div>
+
+        <div className="register-image">
+          <img src={Newreg} alt="Registration illustration" />
+          <div className="image-overlay">
+            <h3>Start Your Journey</h3>
+            <p>Share your stories and connect with fellow writers</p>
           </div>
         </div>
       </div>

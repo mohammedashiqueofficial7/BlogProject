@@ -1,12 +1,11 @@
 import React from "react";
 import "../Assets/Styles/User.css";
 import { Link } from "react-router-dom";
-import img from "../Assets/Images/pixelcut-export.png";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "sonner";
 import loginpic from "../Assets/Images/loginpic.jpg"
-import { Info, InfoIcon } from "lucide-react";
+import { Eye, EyeOff, Mail, Lock, Sparkles } from "lucide-react";
 
 function User() {
   const navigate = useNavigate();
@@ -37,42 +36,68 @@ function User() {
   };
 
   return (
-    <div>
-      
-    <div className="user-main">
-      
-    <div className="container1 main-div">
-      
-      <div className="login-section">
-        <h1>Welcome back!</h1>
-        <h6 className="subtitle">Please enter your credentials to access your account</h6>
-
-        <form onSubmit={handleSubmit}>
-          <label>Email*</label>
-          <input type="email" name="email" placeholder="mail@simmmpple.com" required />
-
-          <label>Password*</label>
-          <input type="password" name="password" placeholder="Min. 8 characters" minLength="8" required />
-
-          <button type="submit" className="sign-in">Sign In</button>
-        </form>
-
-        <div className="options">
-            <a href="#">Forgot password?</a>
+    <div className="login-page">
+      <div className="login-container">
+        <div className="login-card">
+          <div className="login-header">
+            <div className="login-logo">
+              <Sparkles size={32} />
+              <h1>Welcome Back</h1>
+            </div>
+            <p className="login-subtitle">Sign in to your account to continue</p>
           </div>
 
-        <p className="register">
-          Not registered yet? <Link to="/reg" href="#">Create an Account</Link>
-        </p>
-      </div>
+          <form onSubmit={handleSubmit} className="login-form">
+            <div className="form-group">
+              <label>Email Address</label>
+              <div className="input-wrapper">
+                <Mail size={20} className="input-icon" />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+            </div>
 
-      <div className="image-section">
-        <img src={loginpic} width="600px" alt="Login" />
+            <div className="form-group">
+              <label>Password</label>
+              <div className="input-wrapper">
+                <Lock size={20} className="input-icon" />
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Enter your password"
+                  minLength="8"
+                  required
+                />
+              </div>
+            </div>
+
+            <button type="submit" className="login-btn">
+              Sign In
+            </button>
+          </form>
+
+          <div className="login-footer">
+            <a href="#" className="forgot-link">Forgot your password?</a>
+            <p className="signup-prompt">
+              Don't have an account?
+              <Link to="/reg" className="signup-link"> Sign up here</Link>
+            </p>
+          </div>
+        </div>
+
+        <div className="login-image">
+          <img src={loginpic} alt="Login illustration" />
+          <div className="image-overlay">
+            <h3>Join Our Community</h3>
+            <p>Discover amazing stories and connect with writers worldwide</p>
+          </div>
+        </div>
       </div>
     </div>
-    </div>
-    </div>
-  
   );
 }
 export default User;

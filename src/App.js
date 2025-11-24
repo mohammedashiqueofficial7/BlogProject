@@ -42,8 +42,7 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Navigate to="/landing" />}></Route>
-           <Route path="/adminlogin" element={<Adminlogin />} />
+          <Route path="/adminlogin" element={<Adminlogin />} />
             <Route path="/admindashboard" element={<AdminDashBoard />} />
             <Route path="/adminuser" element={<AdminUser />} />
              <Route path="/blogsmanaging" element={<BlogsVerify />} />
@@ -51,11 +50,12 @@ function App() {
              <Route path="/reports" element={<Reports />} />
              <Route path="/comments/:id" element={<Comments />} />
           <Route element={<Layout />}>
-            <Route index element={<Navigate to="/landing" />}></Route>
+            <Route path="/" element={<Navigate to="/userHomepage" />}></Route>
+            <Route path="/landing" element={<Landing />} />
             <Route path="/userlogin" element={<User />} />
             <Route path="/about" element={<About />} />
             <Route path="/userHomepage" element={<UserHomepage />} />
-            <Route path="/blogopen/:id" element={<BlogOpen />} />
+            <Route path="/BlogOpen/:id" element={<BlogOpen />} />
             <Route path="/upload" element={<Uploads />} />
             <Route path="/ai" element={<ChatAi />} />
             <Route path="/profile" element={<Profile />} />
@@ -64,12 +64,9 @@ function App() {
             <Route path="/Emailverify" element={<Email />} />
             <Route path="/reg" element={<Registration/>} />
             <Route path="/changepassword" element={<Passchange />} />
-            <Route path="/landing" element={<Landing />} />
             <Route path="/Contactus" element={<Contactus />} />
             <Route path="/proupgarde" element={<ProUpgrade />} />
             <Route path="/favourites" element={<Favourites />} />
-            <Route path="/" element={<Footer />} />
-          
           </Route>
         </Routes>
       </BrowserRouter>
