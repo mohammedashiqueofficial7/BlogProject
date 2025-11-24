@@ -35,17 +35,17 @@ function About() {
           <div className="hero-stats">
             <div className="stat-item">
               <Users size={32} />
-              <span className="stat-number">10K+</span>
+              <span className="stat-number">100+</span>
               <span className="stat-label">Active Writers</span>
             </div>
             <div className="stat-item">
               <BookOpen size={32} />
-              <span className="stat-number">50K+</span>
+              <span className="stat-number">500+</span>
               <span className="stat-label">Published Blogs</span>
             </div>
             <div className="stat-item">
               <Globe size={32} />
-              <span className="stat-number">100+</span>
+              <span className="stat-number">30+</span>
               <span className="stat-label">Countries</span>
             </div>
           </div>

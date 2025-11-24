@@ -9,8 +9,8 @@ function ProUpgrade() {
     {
       id: 'weekly',
       name: 'Weekly',
-      price: '$2.99',
-      originalPrice: '$5.99',
+      price: '$14.99',
+      originalPrice: '$24.99',
       period: '/week',
       badge: '7-Day Trial',
       features: ['Unlimited Articles', 'Ad-Free Experience', 'Priority Support', '7-Day Free Trial'],
@@ -19,8 +19,8 @@ function ProUpgrade() {
     {
       id: 'monthly',
       name: 'Monthly',
-      price: '$8.99',
-      originalPrice: '$12.99',
+      price: '$39.99',
+      originalPrice: '$49.99',
       period: '/month',
       badge: 'Most Flexible',
       features: ['Unlimited Articles', 'Ad-Free Experience', 'Priority Support', 'Advanced Analytics'],
@@ -29,8 +29,8 @@ function ProUpgrade() {
     {
       id: 'yearly',
       name: 'Yearly',
-      price: '$19.99',
-      originalPrice: '$25.99',
+      price: '$69.99',
+      originalPrice: '$99.99',
       period: '/year',
       badge: 'Best Value',
       features: ['Unlimited Articles', 'Ad-Free Experience', 'Priority Support', '3 Months Free', 'Advanced Analytics', 'Custom Themes'],

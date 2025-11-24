@@ -52,6 +52,13 @@ function Layout() {
                   <span>Profile</span>
                 </Link>
               </li>
+
+              <li className="nav-item premium-nav">
+                <Link to="/proupgarde" className="nav-link premium-link">
+                  <Crown size={18} />
+                  <span>Premium</span>
+                </Link>
+              </li>
             </ul>
           </div>
 
