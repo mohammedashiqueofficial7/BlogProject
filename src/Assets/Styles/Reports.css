@@ -1,5 +1,5 @@
 .reports-container {
-    padding: 2rem;
+    padding: 2rem 4rem;
     background-color: #f8f9fa;
     min-height: 100vh;
 }
@@ -19,6 +19,112 @@
 .reports-header p {
     font-size: 1.1rem;
     color: #6c757d;
+    margin-bottom: 1.5rem;
+}
+
+.reports-header .quick-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.reports-header .action-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.reports-header .action-btn.primary {
+    background: #007bff;
+    color: white;
+}
+
+.reports-header .action-btn.primary:hover {
+    background: #0056b3;
+    transform: translateY(-1px);
+}
+
+.reports-header .action-btn.secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.reports-header .action-btn.secondary:hover {
+    background: #5a6268;
+    transform: translateY(-1px);
+}
+
+.export-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    content: '▼';
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+    transition: transform 0.2s ease;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    min-width: 200px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+}
+
+.export-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    font-size: 0.9rem;
+    color: #495057;
+}
+
+.dropdown-item:hover {
+    background: #f8f9fa;
+    color: #007bff;
+}
+
+.dropdown-item:first-child {
+    border-radius: 8px 8px 0 0;
+}
+
+.dropdown-item:last-child {
+    border-radius: 0 0 8px 8px;
 }
 
 .reports-grid {
@@ -81,9 +187,16 @@
 .stat-number {
     font-size: 2rem;
     font-weight: 700;
-    color: #007bff;
     margin-bottom: 0.5rem;
 }
+
+/* Color coding for different stats */
+.stat-item:nth-child(1) .stat-number { color: #007bff; } /* Users - Blue */
+.stat-item:nth-child(2) .stat-number { color: #28a745; } /* Total Blogs - Green */
+.stat-item:nth-child(3) .stat-number { color: #20c997; } /* Verified Blogs - Teal */
+.stat-item:nth-child(4) .stat-number { color: #ffc107; } /* Pending Blogs - Yellow */
+.stat-item:nth-child(5) .stat-number { color: #dc3545; } /* Deleted Blogs - Red */
+.stat-item:nth-child(6) .stat-number { color: #6f42c1; } /* Reviews - Purple */
 
 .stat-label {
     font-size: 0.9rem;
@@ -96,7 +209,7 @@
 /* Responsive */
 @media (max-width: 768px) {
     .reports-container {
-        padding: 1rem;
+        padding: 1rem 2rem;
     }
 
     .reports-header h1 {

@@ -17,8 +17,10 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
   overflow: hidden;
   background: #f8f9fa;
+  padding: 0 4rem;
 }
 
 /* Removed animated background for cleaner look */
@@ -29,6 +31,8 @@
   max-width: 600px;
   padding: 2rem;
   color: #333333;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .hero-badge {
@@ -250,13 +254,14 @@
 
 /* Features Section */
 .features-section {
-  padding: 5rem 2rem;
+  padding: 5rem 0;
   background: white;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 4rem;
 }
 
 .features-header {
@@ -349,7 +354,7 @@
 
 /* Social Proof Section */
 .social-proof {
-  padding: 5rem 2rem;
+  padding: 5rem 0;
   background: #f8f9fa;
   color: #333333;
 }
@@ -406,7 +411,7 @@
 
 /* Final CTA Section */
 .final-cta {
-  padding: 5rem 2rem;
+  padding: 5rem 0;
   background: #343a40;
   color: white;
   position: relative;
@@ -492,7 +497,7 @@
   .hero-section {
     flex-direction: column;
     text-align: center;
-    padding: 2rem 1rem;
+    padding: 2rem 2rem;
   }
 
   .hero-title {
@@ -519,6 +524,10 @@
 
   .card-preview {
     width: 250px;
+  }
+
+  .container {
+    padding: 0 2rem;
   }
 
   .features-grid,
