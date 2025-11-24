@@ -93,38 +93,112 @@ function Reports() {
   ];
 
   return (
-    <div className="reports-main">
-      <div className="reports-heading">REPORTS</div>
-
-      <div className="barchart-head">Bar Chart</div>
-
-      <div className="report-barchart">
-        <BarChart width={530} height={450} data={derivedData}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="value" fill="#72aa86ff" />
-        </BarChart>
+    <div className="reports-container">
+      <div className="reports-header">
+        <h1>Analytics Dashboard</h1>
+        <p>Comprehensive insights into platform performance and user engagement</p>
       </div>
 
-      <div className="piechart">Pie Chart</div>
+      <div className="reports-grid">
+        {/* Bar Chart Card */}
+        <div className="chart-card">
+          <div className="chart-header">
+            <h3>Data Overview</h3>
+            <p>Statistical breakdown of key metrics</p>
+          </div>
+          <div className="chart-content">
+            <BarChart width={500} height={350} data={derivedData}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#e9ecef" />
+              <XAxis
+                dataKey="name"
+                tick={{ fontSize: 12, fill: '#6c757d' }}
+                axisLine={{ stroke: '#dee2e6' }}
+              />
+              <YAxis
+                tick={{ fontSize: 12, fill: '#6c757d' }}
+                axisLine={{ stroke: '#dee2e6' }}
+              />
+              <Tooltip
+                contentStyle={{
+                  backgroundColor: '#ffffff',
+                  border: '1px solid #dee2e6',
+                  borderRadius: '8px',
+                  boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+                }}
+              />
+              <Legend />
+              <Bar
+                dataKey="value"
+                fill="#007bff"
+                radius={[4, 4, 0, 0]}
+              />
+            </BarChart>
+          </div>
+        </div>
 
-      <div className="report-pie">
-        <PieChart width={730} height={250}>
-          <Pie
-            data={derivedData01}
-            dataKey="value"
-            nameKey="name"
-            cx="50%"
-            cy="50%"
-            outerRadius={110}
-            fill="#272466ff"
-          />
-          <Tooltip />
-          <Legend />
-        </PieChart>
+        {/* Pie Chart Card */}
+        <div className="chart-card">
+          <div className="chart-header">
+            <h3>Blog Status Distribution</h3>
+            <p>Visual representation of blog verification status</p>
+          </div>
+          <div className="chart-content">
+            <PieChart width={400} height={300}>
+              <Pie
+                data={derivedData01}
+                dataKey="value"
+                nameKey="name"
+                cx="50%"
+                cy="50%"
+                outerRadius={100}
+                innerRadius={40}
+                paddingAngle={5}
+              />
+              <Tooltip
+                contentStyle={{
+                  backgroundColor: '#ffffff',
+                  border: '1px solid #dee2e6',
+                  borderRadius: '8px',
+                  boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+                }}
+              />
+              <Legend
+                verticalAlign="bottom"
+                height={36}
+              />
+            </PieChart>
+          </div>
+        </div>
+
+        {/* Summary Stats Card */}
+        <div className="stats-card">
+          <div className="chart-header">
+            <h3>Quick Stats</h3>
+            <p>Key performance indicators at a glance</p>
+          </div>
+          <div className="stats-content">
+            <div className="stat-item">
+              <div className="stat-number">{dashboardData.usercount}</div>
+              <div className="stat-label">Total Users</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number">{dashboardData.blogcount}</div>
+              <div className="stat-label">Total Blogs</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number">{dashboardData.verifiedcount}</div>
+              <div className="stat-label">Verified Blogs</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number">{dashboardData.pendingcount}</div>
+              <div className="stat-label">Pending Blogs</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number">{dashboardData.deletingcount}</div>
+              <div className="stat-label">Deleted Blogs</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
