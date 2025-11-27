@@ -162,9 +162,9 @@ function UserHomepage() {
                     
                     <h3 className="blog-title">{blog.title}</h3>
                     
-                    <p className="blog-excerpt">
+                    {/* <p className="blog-excerpt">
                       {blog.description ? blog.description.substring(0, 120) + '...' : 'Click to read this amazing blog post and discover new insights.'}
-                    </p>
+                    </p> */}
                     
                     <div className="blog-actions">
                       <Link
@@ -173,17 +173,7 @@ function UserHomepage() {
                       >
                         Read Article
                       </Link>
-                      
-                      <div className="blog-stats">
-                        <button className="stat-btn">
-                          <Heart size={16} />
-                          <span>{blog.likes || 0}</span>
-                        </button>
-                        <button className="stat-btn">
-                          <Eye size={16} />
-                          <span>{blog.views || 0}</span>
-                        </button>
-                      </div>
+                    
                     </div>
                   </div>
                 </article>

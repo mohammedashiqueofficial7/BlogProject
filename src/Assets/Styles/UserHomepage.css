@@ -286,8 +286,16 @@
 }
 
 .blog-read-btn {
-  font-size: 0.875rem;
-  padding: var(--space-sm) var(--space-lg);
+  font-size: 1rem;
+  padding: var(--space-md) var(--space-xl);
+  transition: all 0.3s ease;
+}
+
+.blog-read-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: var(--white);
 }
 
 .blog-stats {
