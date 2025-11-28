@@ -8,23 +8,23 @@
 
 .register-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #4facfe 100%);
+  background: linear-gradient(135deg, var(--secondary-gradient), var(--accent-gradient));
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: var(--space-xl);
 }
 
 .register-container {
   display: flex;
-  max-width: 1200px;
+  max-width: 1000px;
   width: 100%;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  background: var(--surface);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-xl);
   overflow: hidden;
-  min-height: 650px;
+  min-height: 600px;
+  border: 1px solid var(--border-color);
 }
 
 .register-card {
@@ -111,16 +111,17 @@
 }
 
 .register-btn {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  color: white;
+  background: var(--secondary-gradient);
+  color: var(--white);
   border: none;
-  padding: 1rem;
-  border-radius: 12px;
-  font-size: 1.1rem;
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: 1rem;
+  margin-top: var(--space-lg);
+  box-shadow: var(--shadow-md);
 }
 
 .register-btn:hover {
@@ -187,31 +188,39 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .register-page {
+    padding: var(--space-md);
+  }
+
   .register-container {
     flex-direction: column;
-    margin: 1rem;
     min-height: auto;
   }
 
   .register-card {
-    padding: 2rem 1.5rem;
+    padding: var(--space-xl) var(--space-lg);
     min-width: auto;
   }
 
   .register-image {
     min-width: auto;
-    height: 300px;
+    height: 250px;
+    order: -1;
   }
 
   .register-logo h1 {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 
   .image-overlay {
-    padding: 1.5rem;
+    padding: var(--space-lg);
   }
 
   .image-overlay h3 {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
+  }
+
+  .register-form {
+    gap: var(--space-md);
   }
 }

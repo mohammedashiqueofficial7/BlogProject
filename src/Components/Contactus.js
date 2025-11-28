@@ -74,24 +74,6 @@ function Contactus() {
               <a href="mailto:contact@example.com">contact@example.com</a>
             </div>
           </div>
-
-          <div className="social-section">
-            <h3>Follow Us</h3>
-            <div className="social-icons">
-              <a href="#" aria-label="Facebook">
-                <i className="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" aria-label="Twitter">
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a href="#" aria-label="LinkedIn">
-                <i className="fab fa-linkedin-in"></i>
-              </a>
-              <a href="#" aria-label="YouTube">
-                <i className="fab fa-youtube"></i>
-              </a>
-            </div>
-          </div>
         </div>
 
         {/* Right Section - Contact Form */}

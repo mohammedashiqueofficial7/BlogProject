@@ -19,9 +19,8 @@
 }
 
 .navbar-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 var(--space-lg);
+  width: 100%;
+  padding: 0 var(--space-xl);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -97,7 +96,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: var(--space-lg);
+  gap: var(--space-md);
 }
 
 .nav-item {
@@ -220,6 +219,11 @@
   flex: 1;
   margin-top: 70px;
   min-height: calc(100vh - 70px);
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 var(--space-xl);
 }
 
 /* Modern Modal Styles */
@@ -309,6 +313,16 @@
   }
 }
 
+@media (max-width: 1200px) {
+  .navbar-container {
+    padding: 0 var(--space-lg);
+  }
+
+  .main-content {
+    padding: 0 var(--space-lg);
+  }
+}
+
 @media (max-width: 768px) {
   .navbar-container {
     padding: 0 var(--space-md);
@@ -319,9 +333,70 @@
     height: 40px;
   }
 
+  .navbar-toggle {
+    display: block;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--surface);
+    border-top: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
+    z-index: 999;
+  }
+
+  .mobile-nav .navbar-nav {
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding: var(--space-lg);
+  }
+
+  .mobile-nav .nav-link {
+    justify-content: flex-start;
+    padding: var(--space-md);
+  }
+
+  .mobile-nav .dropdown {
+    width: 100%;
+  }
+
+  .mobile-nav .modern-dropdown {
+    position: static;
+    box-shadow: none;
+    border: 1px solid var(--border-color);
+    margin-top: var(--space-sm);
+  }
+
   .main-content {
     margin-top: 60px;
     min-height: calc(100vh - 60px);
+    padding: 0 var(--space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0 var(--space-sm);
+    height: 55px;
+  }
+
+  .navbar-logo {
+    height: 35px;
+  }
+
+  .main-content {
+    margin-top: 55px;
+    min-height: calc(100vh - 55px);
+    padding: 0 var(--space-sm);
   }
 }
 
