@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@google/genai": "^1.15.0",
+    "axios": "^1.13.2",
     "bootstrap": "^5.3.3",
     "cra-template": "1.2.0",
     "jspdf": "^3.0.4",
