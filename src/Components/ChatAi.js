@@ -4,13 +4,14 @@ import { GoogleGenAI, FunctionCallingConfigMode } from "@google/genai";
 import { SendHorizontal } from "lucide-react";
 import { toast } from "sonner";
 import axios from "axios";
+import API_BASE_URL from "../config";
 
 function ChatAi() {
   const textref = useRef(null);
   const [msgHistory, setMsgHistory] = useState([]);
   const createBlog = (title, description, category) => {
     axios
-      .get("http://localhost:3000/blogmodel/image", { responseType: "blob" })
+      .get(`${API_BASE_URL}/blogmodel/image`, { responseType: "blob" })
       .then((res) => {
         console.log(res.data);
 
@@ -20,7 +21,7 @@ function ChatAi() {
         formdata.append("category", category);
         formdata.append("image", res.data, "blogimage.jpg");
         axios
-          .post("http://localhost:3000/blogmodel/uploadblog", formdata, {
+          .post(`${API_BASE_URL}/blogmodel/uploadblog`, formdata, {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
@@ -154,13 +155,22 @@ function ChatAi() {
               </div>
             ) : (
               msgHistory.map((msg, index) => (
-                <div key={index} className={`message-wrapper ${msg.role === "user" ? "user-wrapper" : "ai-wrapper"}`}>
+                <div
+                  key={index}
+                  className={`message-wrapper ${
+                    msg.role === "user" ? "user-wrapper" : "ai-wrapper"
+                  }`}
+                >
                   {msg.role === "assistant" && (
                     <div className="ai-avatar">
                       <span>🤖</span>
                     </div>
                   )}
-                  <div className={`message-bubble ${msg.role === "user" ? "user-bubble" : "ai-bubble"}`}>
+                  <div
+                    className={`message-bubble ${
+                      msg.role === "user" ? "user-bubble" : "ai-bubble"
+                    }`}
+                  >
                     <p>{msg.text}</p>
                   </div>
                   {msg.role === "user" && (
@@ -200,7 +210,8 @@ function ChatAi() {
 
       <div className="ai-footer">
         <p className="ai-note">
-          Note: AI can make mistakes. Please verify information from reliable sources.
+          Note: AI can make mistakes. Please verify information from reliable
+          sources.
         </p>
       </div>
     </div>

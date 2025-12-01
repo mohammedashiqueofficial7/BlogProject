@@ -1,9 +1,22 @@
 import axios from "axios";
-import { CheckCircle, X, Eye, Trash2, Search, Filter, Download, RefreshCw, FileText, Calendar, User } from "lucide-react";
+import {
+  CheckCircle,
+  X,
+  Eye,
+  Trash2,
+  Search,
+  Filter,
+  Download,
+  RefreshCw,
+  FileText,
+  Calendar,
+  User,
+} from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import "../Assets/Styles/AdminUser.css";
+import API_BASE_URL from "../config";
 
 function BlogsVerify() {
   const [blogsData, setBlogsData] = useState([]);
@@ -17,9 +30,10 @@ function BlogsVerify() {
   }, []);
 
   useEffect(() => {
-    const filtered = blogsData.filter(blog =>
-      blog.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      blog._id?.toLowerCase().includes(searchTerm.toLowerCase())
+    const filtered = blogsData.filter(
+      (blog) =>
+        blog.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        blog._id?.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredBlogs(filtered);
   }, [searchTerm, blogsData]);
@@ -27,7 +41,7 @@ function BlogsVerify() {
   const fetchBlogs = async () => {
     try {
       setLoading(true);
-      const result = await axios.get("http://localhost:3000/admin/blogslist");
+      const result = await axios.get(`${API_BASE_URL}/admin/blogslist`);
       setBlogsData(result.data);
     } catch (error) {
       toast.error("Failed to fetch blogs");
@@ -39,7 +53,7 @@ function BlogsVerify() {
   const handleVerify = async (id) => {
     try {
       await axios.put(
-        `http://localhost:3000/admin/verifyblog/${id}`,
+        `${API_BASE_URL}/admin/verifyblog/${id}`,
         {},
         {
           headers: {
@@ -47,12 +61,14 @@ function BlogsVerify() {
           },
         }
       );
-      setBlogsData(blogsData.map((blog) => {
-        if (blog._id === id) {
-          blog.verified = true;
-        }
-        return blog;
-      }));
+      setBlogsData(
+        blogsData.map((blog) => {
+          if (blog._id === id) {
+            blog.verified = true;
+          }
+          return blog;
+        })
+      );
       toast.success("Blog verified successfully");
     } catch (err) {
       toast.error("Failed to verify blog");
@@ -62,8 +78,8 @@ function BlogsVerify() {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this blog?")) {
       try {
-        await axios.delete(`http://localhost:3000/admin/deleteblog/${id}`, {
-          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
+        await axios.delete(`${API_BASE_URL}/admin/deleteblog/${id}`, {
+          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         });
         setBlogsData(blogsData.filter((blog) => blog._id !== id));
         toast.success("Blog deleted successfully");
@@ -78,33 +94,37 @@ function BlogsVerify() {
   };
 
   const formatDate = (dateString) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
+    return new Date(dateString).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
     });
   };
 
   const exportToPDF = () => {
-    import('jspdf').then(({ jsPDF }) => {
+    import("jspdf").then(({ jsPDF }) => {
       const doc = new jsPDF();
-      
+
       // Header
       doc.setFontSize(20);
-      doc.text('Blogs Report', 20, 20);
+      doc.text("Blogs Report", 20, 20);
       doc.setFontSize(12);
       doc.text(`Generated on: ${new Date().toLocaleDateString()}`, 20, 30);
       doc.text(`Total Blogs: ${blogsData.length}`, 20, 40);
-      doc.text(`Verified: ${blogsData.filter(b => b.verified).length}`, 20, 50);
-      
+      doc.text(
+        `Verified: ${blogsData.filter((b) => b.verified).length}`,
+        20,
+        50
+      );
+
       // Table headers
       let yPos = 70;
       doc.setFontSize(10);
-      doc.text('Title', 20, yPos);
-      doc.text('Author', 100, yPos);
-      doc.text('Date', 140, yPos);
-      doc.text('Status', 180, yPos);
-      
+      doc.text("Title", 20, yPos);
+      doc.text("Author", 100, yPos);
+      doc.text("Date", 140, yPos);
+      doc.text("Status", 180, yPos);
+
       // Table data
       blogsData.forEach((blog, index) => {
         yPos += 10;
@@ -112,13 +132,13 @@ function BlogsVerify() {
           doc.addPage();
           yPos = 20;
         }
-        doc.text((blog.title || 'N/A').substring(0, 30), 20, yPos);
-        doc.text((blog.author || 'Unknown').substring(0, 15), 100, yPos);
+        doc.text((blog.title || "N/A").substring(0, 30), 20, yPos);
+        doc.text((blog.author || "Unknown").substring(0, 15), 100, yPos);
         doc.text(formatDate(blog.createdAt), 140, yPos);
-        doc.text(blog.verified ? 'Verified' : 'Pending', 180, yPos);
+        doc.text(blog.verified ? "Verified" : "Pending", 180, yPos);
       });
-      
-      doc.save(`blogs_report_${new Date().toISOString().split('T')[0]}.pdf`);
+
+      doc.save(`blogs_report_${new Date().toISOString().split("T")[0]}.pdf`);
     });
   };
 
@@ -128,7 +148,9 @@ function BlogsVerify() {
       <div className="admin-page-header">
         <div className="header-content">
           <h1 className="page-title">Blog Management</h1>
-          <p className="page-subtitle">Review and manage all blog submissions</p>
+          <p className="page-subtitle">
+            Review and manage all blog submissions
+          </p>
         </div>
         <div className="header-actions">
           <button className="btn-modern btn-secondary" onClick={fetchBlogs}>
@@ -195,13 +217,15 @@ function BlogsVerify() {
                         </div>
                         <div className="user-details">
                           <div className="user-name">{blog.title}</div>
-                          <div className="user-id">ID: {blog._id?.slice(-8)}</div>
+                          <div className="user-id">
+                            ID: {blog._id?.slice(-8)}
+                          </div>
                         </div>
                       </div>
                     </td>
                     <td>
                       <div className="contact-info">
-                        <div className="email">{blog.author || 'Unknown'}</div>
+                        <div className="email">{blog.author || "Unknown"}</div>
                         <div className="phone">#{idx + 1}</div>
                       </div>
                     </td>
@@ -211,30 +235,34 @@ function BlogsVerify() {
                       </div>
                     </td>
                     <td>
-                      <span className={`status-badge ${blog.verified ? 'active' : 'inactive'}`}>
-                        {blog.verified ? 'Verified' : 'Pending'}
+                      <span
+                        className={`status-badge ${
+                          blog.verified ? "active" : "inactive"
+                        }`}
+                      >
+                        {blog.verified ? "Verified" : "Pending"}
                       </span>
                     </td>
                     <td>
                       <div className="action-buttons">
-                        <button 
-                          className="action-btn view" 
+                        <button
+                          className="action-btn view"
                           title="View Comments"
                           onClick={() => viewComments(blog._id)}
                         >
                           <Eye size={16} />
                         </button>
                         {!blog.verified && (
-                          <button 
-                            className="action-btn verify" 
+                          <button
+                            className="action-btn verify"
                             title="Verify Blog"
                             onClick={() => handleVerify(blog._id)}
                           >
                             <CheckCircle size={16} />
                           </button>
                         )}
-                        <button 
-                          className="action-btn delete" 
+                        <button
+                          className="action-btn delete"
                           title="Delete Blog"
                           onClick={() => handleDelete(blog._id)}
                         >
@@ -266,11 +294,15 @@ function BlogsVerify() {
         </div>
         <div className="stat-item">
           <span className="stat-label">Verified:</span>
-          <span className="stat-value">{blogsData.filter(b => b.verified).length}</span>
+          <span className="stat-value">
+            {blogsData.filter((b) => b.verified).length}
+          </span>
         </div>
         <div className="stat-item">
           <span className="stat-label">Pending:</span>
-          <span className="stat-value">{blogsData.filter(b => !b.verified).length}</span>
+          <span className="stat-value">
+            {blogsData.filter((b) => !b.verified).length}
+          </span>
         </div>
       </div>
     </div>

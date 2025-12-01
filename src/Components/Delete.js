@@ -6,22 +6,23 @@ import { Link, useNavigate } from "react-router-dom";
 import { Info } from "lucide-react";
 import { toast } from "sonner";
 import axios from "axios";
+import API_BASE_URL from "../config";
 
 function Delete() {
-   const navigate = useNavigate()
-  const handlesubmit=(e)=>{
-      e.preventDefault()
-       const token = localStorage.getItem("token");
-      axios
-      .delete("http://localhost:3000/user/delete",{
-        headers: {Authorization: `Bearer ${token}`}
+  const navigate = useNavigate();
+  const handlesubmit = (e) => {
+    e.preventDefault();
+    const token = localStorage.getItem("token");
+    axios
+      .delete(`${API_BASE_URL}/user/delete`, {
+        headers: { Authorization: `Bearer ${token}` },
       })
-      .then((res)=>{
+      .then((res) => {
         toast("Account Deleted Successfully");
         navigate("/userlogin");
-        localStorage.removeItem("token")
-      })
-    }
+        localStorage.removeItem("token");
+      });
+  };
   return (
     <div>
       <div className="delete-main-div">
@@ -77,14 +78,16 @@ function Delete() {
             </div>
           </div>
           <p className="quote-delete">
-            <Info />All the data will be deleted permanently from the server including{" "}
+            <Info />
+            All the data will be deleted permanently from the server including{" "}
             <br />
             your profile and informations
           </p>
 
           <div>
             <div className="delete-confirm-button">
-              <button onClick={handlesubmit}
+              <button
+                onClick={handlesubmit}
                 className="delete-confirm"
                 style={{ textDecoration: "none" }}
               >
@@ -92,13 +95,14 @@ function Delete() {
               </button>
             </div>
             <div className="cancel-main">
-              
-                <Link className="cancel-confirm"
-                class="btn btn-success" 
+              <Link
+                className="cancel-confirm"
+                class="btn btn-success"
                 to="/settings"
-                style={{ textDecoration: "none" }}>
-                 <MoveLeft /> Cancel
-             </Link>
+                style={{ textDecoration: "none" }}
+              >
+                <MoveLeft /> Cancel
+              </Link>
             </div>
           </div>
         </div>

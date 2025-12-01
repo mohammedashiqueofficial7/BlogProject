@@ -3,6 +3,7 @@ import "../Assets/Styles/Contactus.css";
 import contact from "../Assets/Images/Hqh2w-unsplash.jpg";
 import axios from "axios";
 import { toast } from "sonner";
+import API_BASE_URL from "../config";
 
 function Contactus() {
   const handleSubmit = async (e) => {
@@ -27,7 +28,7 @@ function Contactus() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/contact/sendmessage",
+        `${API_BASE_URL}/contact/sendmessage`,
         formData
       );
 
@@ -38,7 +39,9 @@ function Contactus() {
         toast.error("Message declined: " + result.error);
       }
     } catch (error) {
-      toast.error("Message declined: Failed to send message. Please try again.");
+      toast.error(
+        "Message declined: Failed to send message. Please try again."
+      );
     }
   };
   return (
@@ -59,7 +62,8 @@ function Contactus() {
             <div className="detail-item">
               <h3>📍 Address</h3>
               <p>
-                Mada Center 8th floor, 379 Hudson St,<br />
+                Mada Center 8th floor, 379 Hudson St,
+                <br />
                 New York, NY 10018 US
               </p>
             </div>
